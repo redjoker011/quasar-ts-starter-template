@@ -2,5 +2,11 @@
   "@quasar/typescript": {
     "webpack": "plugin",
     "rename": true
+  },
+  "@quasar/testing-unit-jest": {
+    "babel": "babelrc",
+    "options": [
+      "scripts"
+    ]
   }
 }
