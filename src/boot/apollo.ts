@@ -8,9 +8,11 @@ import ActionCableLink from 'graphql-ruby-client/subscriptions/ActionCableLink';
 import { getMainDefinition } from 'apollo-utilities';
 import fetch from 'unfetch';
 
+// Might change localhost port based on your preference
 const HTTP_LOCALHOST = 'http://localhost:3000/graphql'
 const WS_LOCALHOST = 'ws://localhost:3000/graphql'
 
+// assign endpoint using dot env variable
 const HTTP_ENDPOINT = process.env.GQL_HTTPS_ENDPOINT || HTTP_LOCALHOST
 const WS_ENDPOINT = process.env.GQL_WSS_ENDPOINT || WS_LOCALHOST
 
@@ -32,6 +34,7 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
   },
 });
 
+// Here's how Ruby on Rails Action Cable works with Apollo
 const cable = ActionCable.createConsumer(WS_ENDPOINT);
 
 const httpLink = new HttpLink({
@@ -41,7 +44,6 @@ const httpLink = new HttpLink({
 
 // add the authorization to the headers
 // https://github.com/Akryum/vue-apollo/issues/144
-
 function middleware(token: string | null) {
   return new ApolloLink((operation, forward) => {
     operation.setContext({
@@ -60,6 +62,9 @@ function middleware(token: string | null) {
     }
   });
 }
+
+// Might consider change implementation where token were store
+// e.g localStorage or Cookie
 const storedToken = localStorage.get('token') || '';
 
 // Reason why we dont use createApolloClient builder
