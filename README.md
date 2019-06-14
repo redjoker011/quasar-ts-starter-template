@@ -24,6 +24,7 @@ Ruby on Rails Action Cable.
 
 # External Resources
 
+- [Quasar Framework](https://quasar.dev/)
 - [Quasar Typescript Extension](https://github.com/quasarframework/app-extension-typescript)
 - [Quasar Testing Extension](https://github.com/quasarframework/quasar-testing)
 - [Quasar Dotenv Extension](https://github.com/quasarframework/app-extension-dotenv)
